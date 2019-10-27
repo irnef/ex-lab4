@@ -1,3 +1,5 @@
+@@ -0,0 +1,62 @@
+# coding=utf-8
 # Здесь необходимо реализовать декоратор, print_result который принимает на вход функцию,
 # вызывает её, печатает в консоль имя функции, печатает результат и возвращает значение
 # Если функция вернула список (list), то значения должны выводиться в столбик
@@ -35,3 +37,27 @@
 # test_4
 # 1
 # 2
+
+
+from __future__ import print_function
+
+
+def print_result(func_to_decorate):
+    def decorated_func(*args):
+        print('Function name: ' + func_to_decorate.__name__)
+
+        print('Function results:', end='\n')
+        t = func_to_decorate(*args)
+        if type(t) is dict:
+            for key in t.keys():
+                print('{} = {}'.format(key, t[key]))
+        else:
+            if type(t) is list:
+                for values in t:
+                    print(values)
+            else:
+                print(t)
+        print()
+        return t
+
+    return decorated_func

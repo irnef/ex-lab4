@@ -1,4 +1,7 @@
+@@ -0,0 +1,31 @@
+# coding=utf-8
 from librip.decorators import print_result
+
 
 # Необходимо верно реализовать print_result
 # и задание будет выполнено
